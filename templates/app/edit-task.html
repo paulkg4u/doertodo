@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+{% block pageBody %}
+<div id = "mainDivAddTodo">
+
+	<h2>Edit {{task.taskName}}</h2>
+	<form id = "addEditedTask" method="post" action = "/todo/saveEditedTask/">
+		{% csrf_token %}
+		<div class="form-group" >
+		<label>Task Name</label>
+		<input type="text" class = "form-control" maxlength="100"  name = "taskName"  value = "{{task.taskName}}"required>	
+		</div>
+		<div class="form-group" >
+		<label>Task Name</label>
+		<textarea class = "form-control" name = "taskDesc">{{task.taskDescription}}</textarea>	
+		</div>
+		<div class = "form-group" >
+			<label>End Date (YYYY-mm-dd)</label>
+			<input name = "dueDate" type = "date" class="form-control" value="{{task.taskDueDate}}">
+		</div>
+		<div class ="form-group" >
+			<label>Priority</label>
+			
+			<input class = "form-control" type="number" name = "priority" min = "1" max = "5" value = "{{task.taskPriority}}" required>
+
+		</div>
+		<input type="hidden" name = "taskId" value="{{task.id}}">
+		<center>
+		<button id = "addEditedTaskButton" class = "btn btn-success">Save <span class = "glyphicon glyphicon-floppy-disk" aria-hidden = "True"></span></button>
+
+		<a href="/todo/"><button id = "cancelButton" class = "btn btn-warning">Cancel <span class = "glyphicon glyphicon-remove" aria-hidden = "true"></span></button></a>
+		</center>
+	</form>
+
+</div>
+{% endblock %}

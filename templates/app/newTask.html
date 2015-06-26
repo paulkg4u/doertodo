@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% block pageBody %}
+<div id = "mainDivAddTodo">
+
+	<h2>Add New Task</h2>
+	<form id = "addTask" method="post" action = "/todo/saveTask/">
+		{% csrf_token %}
+		<div class="form-group" >
+		<label>Task Name</label>
+		<input type="text" class = "form-control" maxlength="100"  name = "taskName" required>	
+		</div>
+		<div class="form-group" >
+		<label>Task Name</label>
+		<textarea class = "form-control" name = "taskDesc" ></textarea>	
+		</div>
+		<div class = "form-group" >
+			<label>End Date (YYYY-mm-dd)</label>
+			<input name = "dueDate" type = "date" class="form-control">
+		</div>
+		<div class ="form-group" >
+			<label>Priority</label>
+			
+			<input class = "form-control" type="number" name = "priority" min = "1" max = "5" value = "3" required>
+
+		</div>
+		<center>
+		<button id = "addTaskButton" class = "btn btn-success">Add Task <span class = "glyphicon glyphicon-plus" aria-hidden = "True"></span></button>
+		</center>
+	</form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,106 @@
+html{
+	font-family: "Times New Roman", Times, serif;
+}
+
+body{
+background: url("../images/bg.jpg") no-repeat center center fixed;
+background-size: cover;
+
+}
+
+#mainDiv{
+
+	margin-top: 10vh;
+	margin-right: 7vw;
+	margin-bottom: 2vh;
+	margin-left: 7vw;
+	background-color: white;
+	opacity: 0.9;
+	height: 88vh;
+	width: 86vw;
+}
+#mainDivAddTodo{
+	width:50%;
+	position: absolute;
+	margin-top: 10vh;
+	left:50%;
+	transform:translate(-50%,0);
+
+	background-color: white;
+	opacity:0.9;
+	padding: 5vw;
+}
+
+#loginBox{
+	position: absolute;
+	margin-top: 10vh;
+	left:50%;
+	transform:translate(-50%,0);
+
+	background-color: white;
+	opacity:0.8;
+	padding: 5vw;
+}
+
+.top-navbar{
+	opacity: 0.7;
+}
+#leftColumn{
+	
+	
+	height:100%;
+	padding-top: 2vh;
+	padding-bottom:2vh; 
+	padding-left: 2vw;
+	padding-right: 2vw;
+}
+#rightColumn{
+	height: 100%;
+	padding-top: 2%;
+	padding-bottom:2%; 
+	padding-left: 2%;
+	padding-right: 2%;
+	float: right;
+	
+}
+.priorityLevels{
+	text-decoration: none;
+	display: inline;
+
+	}
+#todoHead{
+
+	color: #999999;
+}
+.taskNameHead{
+	width: 30%
+
+}
+.taskDescHead{
+	width: 40%
+
+}
+.taskButtons{
+
+
+}
+.tableClass{
+	font-size: 1.3em;
+}
+#headingRow{
+	background-color: #aaaaaa;
+	color: #eeeeee;
+
+}
+#mainDivViewTodo{
+	width:50%;
+	position: absolute;
+	margin-top: 10vh;
+	left:50%;
+	transform:translate(-50%,0);
+
+	background-color: white;
+	opacity:0.9;
+	padding: 5vw;
+	font-size: 1.2em;
+}

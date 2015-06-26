@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang = "en">
+<head>
+<meta charset = "utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width = device-width,initial-scale=1">
+<meta name = "description" content = "">
+<meta name = "author" content = "">
+<title>ToDo</title>
+<link href = "{% static 'styles/bootstrap.min.css' %}" rel = "stylesheet" type= "text/css">
+
+<script src = "{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}" ></script>
+<script src="{% static 'js/scripts.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'styles/todo-styles.css'%}">
+</head>
+
+<body>
+<nav class = "navbar navbar-inverse navbar-fixed-top top-navbar">
+<div class = "container">
+	<div class = "navbar-header">
+
+		<a class = "navbar-brand" href = "/todo/"><img src="{% static 'images/logo.png' %}"></a>
+
+	</div>
+	<div class="navbar-collapse collapse" style="padding-top:2vh; font-size:3vh;">
+		<ul class = "nav navbar-nav navbar-right">
+			{% if user.is_authenticated %}
+			<li style="color:white;">
+				Hello {{ user.username}}&nbsp;
+			</li>
+			<li style="color:white;">
+				<a style = "padding:0px; display:inline;" href="{% url 'auth_login' %}">Logout</a>
+				
+			</li>
+			{% else %}
+			<li style = "color:white;">
+				<a href="{% url 'auth_login'%}">Login</a>
+			</li>
+			{%endif%}
+		</ul>
+		
+	</div>
+
+</div>
+	
+</nav>
+{% block pageBody %}
+{% endblock %}
+</body>
+</html>
