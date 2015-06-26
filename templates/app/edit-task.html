@@ -1,6 +1,6 @@
 {% extends "main.html" %}
 {% block pageBody %}
-<div id = "mainDivAddTodo">
+<div id = "mainDivEditTodo">
 
 	<h2 >Edit {{task.taskName}}</h2>
 	<br>
@@ -19,8 +19,12 @@
 			<input name = "dueDate" type = "date" class="form-control" value="{{task.taskDueDate|date:'Y-m-d'}}">
 		</div>
 		<div class = "form-group">
-			<label>task Status</label>
-			
+			<label>Task Status</label>
+			<select style = "width:20%;" class= "form-control" name = "taskStatus">
+				<option value = "Todo">Todo</option>
+				<option value = "Doing">Doing</option>
+				<option value = "Done">Done</option>
+			</select>
 		</div>
 		<div class ="form-group" >
 			<label>Priority</label>

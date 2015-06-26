@@ -80,6 +80,7 @@ def saveEditedTask(request):
 		taskObject.taskName =taskData['taskName']
 		taskObject.taskDescription = taskData['taskDesc']
 		taskObject.taskDueDate=taskData['dueDate']
+		taskObject.taskStatus=taskData['taskStatus']
 		taskObject.taskPriority = taskData['priority']
 		taskObject.save()
 

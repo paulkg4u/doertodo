@@ -18,7 +18,7 @@
 </head>
 
 <body>
-<nav class = "navbar navbar-inverse navbar-fixed-top top-navbar">
+<nav class = "navbar navbar-inverse navbar-fixed-top top-navbar" style = "opacity:1.0;">
 <div class = "container">
 	<div class = "navbar-header">
 
@@ -31,13 +31,13 @@
 			<li style="color:white;">
 				Hello {{ user.username}}&nbsp;
 			</li>
-			<li style="color:white;">
-				<a style = "padding:0px; display:inline;" href="{% url 'auth_login' %}">Logout</a>
+			<li style="color:black;">
+				<a style = "padding:0px; display:inline;" href="{% url 'auth_login' %}"> Logout <span class = "glyphicon glyphicon-log-out" aria-hidden = "true"></span></a>
 				
 			</li>
 			{% else %}
 			<li style = "color:white;">
-				<a href="{% url 'auth_login'%}">Login</a>
+				<a href="{% url 'auth_login'%}"> Login <span class = "glyphicon glyphicon-login" aria-hidden = "true"></span></a>
 			</li>
 			{%endif%}
 		</ul>
