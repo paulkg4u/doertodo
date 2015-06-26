@@ -73,16 +73,21 @@ background-size: cover;
 	color: #999999;
 }
 .taskNameHead{
+	width: 20%;
+	
+
+}
+
+.taskDescHead{
 	width: 30%
 
 }
-.taskDescHead{
-	width: 40%
+.taskButtons{
+width:30%;
 
 }
-.taskButtons{
-
-
+.taskDateBox{
+	width:20%;
 }
 .tableClass{
 	font-size: 1.3em;
@@ -90,7 +95,7 @@ background-size: cover;
 #headingRow{
 	background-color: #aaaaaa;
 	color: #eeeeee;
-
+	
 }
 #mainDivViewTodo{
 	width:50%;

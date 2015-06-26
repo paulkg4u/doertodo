@@ -2,7 +2,8 @@
 {% block pageBody %}
 <div id = "mainDivAddTodo">
 
-	<h2>Edit {{task.taskName}}</h2>
+	<h2 >Edit {{task.taskName}}</h2>
+	<br>
 	<form id = "addEditedTask" method="post" action = "/todo/saveEditedTask/">
 		{% csrf_token %}
 		<div class="form-group" >
@@ -15,7 +16,11 @@
 		</div>
 		<div class = "form-group" >
 			<label>End Date (YYYY-mm-dd)</label>
-			<input name = "dueDate" type = "date" class="form-control" value="{{task.taskDueDate}}">
+			<input name = "dueDate" type = "date" class="form-control" value="{{task.taskDueDate|date:'Y-m-d'}}">
+		</div>
+		<div class = "form-group">
+			<label>task Status</label>
+			
 		</div>
 		<div class ="form-group" >
 			<label>Priority</label>
@@ -26,8 +31,9 @@
 		<input type="hidden" name = "taskId" value="{{task.id}}">
 		<center>
 		<button id = "addEditedTaskButton" class = "btn btn-success">Save <span class = "glyphicon glyphicon-floppy-disk" aria-hidden = "True"></span></button>
+		<a href="/todo/"><button type = "button" id = "cancelButton" class = "btn btn-warning">Cancel <span class = "glyphicon glyphicon-remove" aria-hidden = "true"></span></button></a>
 
-		<a href="/todo/"><button id = "cancelButton" class = "btn btn-warning">Cancel <span class = "glyphicon glyphicon-remove" aria-hidden = "true"></span></button></a>
+		
 		</center>
 	</form>
 

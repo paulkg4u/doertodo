@@ -11,9 +11,22 @@ def index(request):
 	currentUser = User.objects.get(username = request.user.username)
 	todoList = Task.objects.filter(taskOwner = currentUser)
 	contextDi = {}
-	for each in todoList:
+	completedTasks=[]
+	todoTasks=[]
+	ongoingTasks=[]
+	for each in todoList[::-1]:
 		each.taskDescription=each.taskDescription[:10]
-	contextDi['todos']=todoList
+		if (each.taskStatus=="Todo"):
+			todoTasks.append(each)
+		elif (each.taskStatus=="Doing"):
+			ongoingTasks.append(each)
+		else:
+			completedTasks.append(each)
+			
+	contextDi['todos'] = todoList
+	contextDi['todoTasks']=todoTasks
+	contextDi['ongoingTasks']=ongoingTasks
+	contextDi['completedTasks']=completedTasks
 	return render(request,'app/index.html',contextDi)
 
 @login_required
@@ -25,6 +38,7 @@ def  editTask(request,taskId):
 	taskObject = Task.objects.get(id = taskId)
 	contextDi = {}
 	contextDi['task']=taskObject
+	print taskObject.taskDueDate
 
 	return render(request,'app/edit-task.html',contextDi)
 
