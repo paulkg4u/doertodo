@@ -5,29 +5,33 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 import json
 from todo.models import Task
+from datetime import datetime
 
 @login_required
 def index(request):
+	
 	currentUser = User.objects.get(username = request.user.username)
-	todoList = Task.objects.filter(taskOwner = currentUser)
 	contextDi = {}
-	completedTasks=[]
-	todoTasks=[]
-	ongoingTasks=[]
-	for each in todoList[::-1]:
-		each.taskDescription=each.taskDescription[:10]
-		if (each.taskStatus=="Todo"):
-			todoTasks.append(each)
-		elif (each.taskStatus=="Doing"):
-			ongoingTasks.append(each)
-		else:
-			completedTasks.append(each)
+	
 			
+			
+			
+			
+
+	
+		
+	todoList = Task.objects.filter(taskOwner = currentUser)
+	for each in todoList:
+		each.taskDescription = each.taskDescription[:15]
+	
+				
 	contextDi['todos'] = todoList
-	contextDi['todoTasks']=todoTasks
-	contextDi['ongoingTasks']=ongoingTasks
-	contextDi['completedTasks']=completedTasks
+	print "going to return"
 	return render(request,'app/index.html',contextDi)
+
+
+
+
 
 @login_required
 def newTask(request):

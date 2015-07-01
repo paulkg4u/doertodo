@@ -7,14 +7,34 @@
 	
 <div id = "leftColumn" class = "col-md-12">
 <div id = "todoTasks">
-<div class="col-md-8">
+<div class="col-md-3">
 	<h3 id = "todoHead">Here are your ToDos....</h3>
 </div>
-<div class="col-md-4" style = "text-align:right; padding-top:5px; padding-bottom:5px;">
+	
+<div class="col-md-5" id = "filterform">
+	
+	<form class = "form-inline"  >	
+		<div class = "form-group" style="padding-top:3%;">
+		<label>
+		<h4>Showing Todos for &nbsp;&nbsp;</h4>
+		</label>
+		<select  class = "form-control" name = "filter" id="filter">
+			<option value  = "all">All</option>
+			<option value = "today">Today</option>
+			<option value = "tomorrow">Tomorrow</option>
+			<option value="thisweek"> This Week</option>
+			<option value="thismonth"> This Month</option>
+		</select>
+		</div>
+	</form>
+	
+</div>
+<div class="col-md-4" style = "text-align:right;">
 
 	<a href="/todo/addTodo">
 	<button id = "addTodoButton" class  = "btn btn-info" aria-hidden = "true" style=" width:50%; height:100%;  margin-top:5%;"> <span class = "glyphicon glyphicon-plus"></span> <strong> Add Todo</strong></button></a>
 </div>
+
 <div class= "col-md-12">
 	
 	<div class = "tableClass">
@@ -34,8 +54,8 @@
 
 				</tr>
 				{% for todo in todos %}
-				<tr id = "taskHeader{{todo.id}}">
-
+				<tr id = "taskHeader{{todo.id}}" data-dueDate = "{{todo.taskDueDate.isoformat}}" class = "itemRow">
+					
 					<td class = "taskNameHeadContent"><a style = "text-decoration:none; color:inherit;" href="/todo/viewTask/{{todo.id}}">{{todo.taskName}}</a></td>
 					<td class = "taskDescHeadContent">{{todo.taskDescription}}......</td>
 					<td class = "taskDateboxContent">
@@ -64,6 +84,18 @@
 						obj.style.color = "Green";
 						obj.style.backgroundColor = "#ddddff";
 					};
+					var todayDate = new Date();
+					var todaySec = todayDate.getTime();
+					var rowItem = $('#taskHeader{{todo.id}}');
+					var itemsDate = new Date(rowItem.attr("data-dueDate"));
+					var itemsDateSec = itemsDate.getTime();
+					console.log(itemsDateSec);
+					console.log(todaySec);
+					if (itemsDateSec<todaySec) {
+						console.log(rowItem);
+						rowItem.css('color','black');
+					};
+					
 
 					</script>
 				</tr>

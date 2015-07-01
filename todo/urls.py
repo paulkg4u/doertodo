@@ -4,6 +4,7 @@ urlpatterns = [
 	url(r'^$', views.index, name = 'index'),
 	
 	url(r'^addTodo/', views.newTask,name = 'newTask'),
+	
 	url(r'^saveTask/',views.saveTask,name = 'saveTask'),
 	url(r'^deleteTask/(?P<taskId>[\w\-]+)/$',views.deleteTask, name = "newTask"),
 	url(r'^editTask/(?P<taskId>[\w\-]+)/$',views.editTask, name = 'editTask'),
